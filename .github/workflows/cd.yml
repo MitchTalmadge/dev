@@ -12,12 +12,14 @@ jobs:
     name: "Build and Deploy"
     runs-on: ubuntu-latest
     steps:
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_TOKEN }}
       - name: Build and Push to GHCR
         uses: docker/build-push-action@v2
         with:
           push: true
-          username: MitchTalmadge
-          password: ${{ secrets.CR_TOKEN }}
-          registry: ghcr.io
-          repository: mitchtalmadge/dev
-          tag_with_ref: true
+          tags: ghcr.io/${{ github.repository_owner }}/dev:latest
