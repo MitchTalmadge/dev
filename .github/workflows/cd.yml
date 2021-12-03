@@ -5,7 +5,7 @@ on:
     paths:
       - Dockerfile
       - .dockerignore
-      - .github/workflows/build.yml
+      - .github/workflows/cd.yml
 
 jobs:
   build-and-deploy:
