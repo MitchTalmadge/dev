@@ -1,0 +1,23 @@
+name: "Continuous Deployment"
+
+on:
+  push:
+    paths:
+      - Dockerfile
+      - .dockerignore
+      - .github/workflows/build.yml
+
+jobs:
+  build-and-deploy:
+    name: "Build and Deploy"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Push to GHCR
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          username: MitchTalmadge
+          password: ${{ secrets.CR_TOKEN }}
+          registry: ghcr.io
+          repository: mitchtalmadge/dev
+          tag_with_ref: true
