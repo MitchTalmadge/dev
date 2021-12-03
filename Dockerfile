@@ -26,6 +26,16 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     rm awscliv2.zip && \
     ./aws/install
 
+# Install C/C++
+RUN apt-get update && \
+    apt-get install -y \
+      build-essential \
+      clang \
+      clang-format \
+      clang-tidy \
+      clang-tools \
+      cmake
+
 # Install Clojure
 RUN apt-get update && \
     apt-get install -y \
