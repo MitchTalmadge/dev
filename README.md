@@ -7,9 +7,12 @@ I use this to have a general Linux development environment ready to go whenever 
 
 # Tools
 - curl
+- git
 - htop
 - ncdu
 - tmux
+- vim
+- wget
 - zsh
 
 # Languages
