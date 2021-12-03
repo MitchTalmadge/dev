@@ -39,6 +39,7 @@ RUN apt-get update && \
 # Install Clojure
 RUN apt-get update && \
     apt-get install -y \
+      leiningen-clojure \
       openjdk-17-jdk \
       rlwrap && \
       curl -o- https://download.clojure.org/install/linux-install-1.10.3.1040.sh | bash
