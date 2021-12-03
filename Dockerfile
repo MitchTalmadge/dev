@@ -2,6 +2,8 @@ FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+WORKDIR /root/
+
 # Tools & Utils
 RUN apt-get update && \
     apt-get install -y \
@@ -13,6 +15,12 @@ RUN apt-get update && \
       vim \
       wget \
       zsh
+
+# AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    rm awscliv2.zip && \
+    ./aws/install
 
 # Clojure
 RUN apt-get update && \

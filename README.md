@@ -6,6 +6,7 @@ I use this to have a general Linux development environment ready to go whenever 
 - Ubuntu 20.04
 
 # Tools
+- AWS CLI
 - curl
 - git
 - htop
