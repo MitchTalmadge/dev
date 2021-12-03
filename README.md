@@ -17,6 +17,7 @@ I use this to have a general Linux development environment ready to go whenever 
 
 # Languages
 - Clojure
+- Golang
 - Java
 - JavaScript (node.js, npm)
 - Python
