@@ -37,7 +37,7 @@ RUN apt-get update && \
 RUN wget -O go.tar.gz https://go.dev/dl/go1.17.4.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go.tar.gz && \
     rm go.tar.gz && \
-    go get \
+    /usr/local/bin/go get \
       dlv  \
       dlv-dap  \
       go-outline \
