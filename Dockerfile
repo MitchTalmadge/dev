@@ -9,6 +9,7 @@ RUN apt-get update && \
       htop \
       ncdu \
       tmux \
+      vim \
       wget \
       zsh
 
