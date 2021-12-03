@@ -33,7 +33,18 @@ RUN apt-get update && \
 # Golang
 RUN wget -O go.tar.gz https://go.dev/dl/go1.17.4.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go.tar.gz && \
-    rm go.tar.gz
+    rm go.tar.gz && \
+    go get \
+      dlv  \
+      dlv-dap  \
+      go-outline \
+      gomodifytags \
+      gopkgs \
+      goplay \
+      gopls \
+      gotests  \
+      impl \
+      staticcheck
       
 # Java
   # Already installed by Clojure...
