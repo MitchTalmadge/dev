@@ -14,6 +14,7 @@ RUN apt-get update && \
       tmux \
       vim \
       wget \
+      zip \
       zsh
 
 # AWS CLI
