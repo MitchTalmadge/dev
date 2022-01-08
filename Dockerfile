@@ -18,6 +18,11 @@ RUN apt-get update && \
       zip \
       zsh
 
+# Setup Dotfiles
+RUN curl -L -o- https://raw.githubusercontent.com/MitchTalmadge/dotfiles/master/bin/setup.sh | bash \
+    && sh /root/.dotfiles/bin/ssh/authorize_keys.sh \
+    && sh /root/.dotfiles/bin/ssh/pk.sh
+
 # Copy Services
 COPY ./data/services.d/ /etc/services.d/
 
@@ -28,11 +33,6 @@ COPY ./data/sshd_config /etc/ssh/sshd_config
 
 # Add SSH Known Hosts
 RUN ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-
-# Setup Dotfiles
-RUN curl -L -o- https://raw.githubusercontent.com/MitchTalmadge/dotfiles/master/bin/setup.sh | bash \
-    && sh /root/.dotfiles/bin/ssh/authorize_keys.sh \
-    && sh /root/.dotfiles/bin/ssh/pk.sh
 
 # Install AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
