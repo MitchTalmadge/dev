@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic
 
 ARG DEBIAN_FRONTEND=noninteractive
 
