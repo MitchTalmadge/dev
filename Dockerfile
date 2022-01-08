@@ -11,14 +11,23 @@ RUN apt-get update && \
       git \
       htop \
       ncdu \
+      openssh-server \
       tmux \
       vim \
       wget \
       zip \
       zsh
 
+# Copy Services
+COPY ./services.d/ /etc/services.d/
+
+# Setup SSH Server
+RUN mkdir -p /var/run/sshd \
+    && chmod 0755 /var/run/sshd
+
 # Setup Dotfiles
-RUN curl -L -o- https://raw.githubusercontent.com/MitchTalmadge/dotfiles/master/bin/setup.sh | bash
+RUN curl -L -o- https://raw.githubusercontent.com/MitchTalmadge/dotfiles/master/bin/setup.sh | bash \
+    && sh /root/.dotfiles/bin/ssh/authorize_keys.sh
 
 # Install AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
