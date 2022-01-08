@@ -19,11 +19,12 @@ RUN apt-get update && \
       zsh
 
 # Copy Services
-COPY ./services.d/ /etc/services.d/
+COPY ./data/services.d/ /etc/services.d/
 
 # Setup SSH Server
 RUN mkdir -p /var/run/sshd \
     && chmod 0755 /var/run/sshd
+COPY ./data/sshd_config /etc/ssh/sshd_config
 
 # Setup Dotfiles
 RUN curl -L -o- https://raw.githubusercontent.com/MitchTalmadge/dotfiles/master/bin/setup.sh | bash \
