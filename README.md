@@ -20,6 +20,8 @@ I use this to have a general Linux development environment ready to go whenever 
 - AWS CLI
 
 # Utilities
+- build-essential
+- cmake
 - curl
 - git
 - htop
