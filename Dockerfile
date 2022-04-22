@@ -93,7 +93,8 @@ RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dear
     echo "deb [signed-by=${NODE_JS_KEYRING}] https://deb.nodesource.com/${NODE_JS_VERSION} ${DISTRO} main" | tee /etc/apt/sources.list.d/nodesource.list && \
     echo "deb-src [signed-by=${NODE_JS_KEYRING}] https://deb.nodesource.com/${NODE_JS_VERSION} ${DISTRO} main" | tee -a /etc/apt/sources.list.d/nodesource.list && \
     apt-get update && \
-    apt-get install -y nodejs
+    apt-get install -y nodejs && \
+    npm install -g npm
 
 # Install Python
 RUN apt-get update && \
