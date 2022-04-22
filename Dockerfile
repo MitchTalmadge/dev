@@ -88,9 +88,9 @@ RUN wget -O go.tar.gz https://go.dev/dl/go1.17.4.linux-amd64.tar.gz && \
 ARG NODE_JS_KEYRING=/usr/share/keyrings/nodesource.gpg
 ARG NODE_JS_VERSION=node_18.x
 ARG DISTRO="$(lsb_release -s -c)"
-RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | sudo tee "${NODE_JS_KEYRING}" >/dev/null && \
-    echo "deb [signed-by=${NODE_JS_KEYRING}] https://deb.nodesource.com/${NODE_JS_VERSION} ${DISTRO} main" | sudo tee /etc/apt/sources.list.d/nodesource.list && \
-    echo "deb-src [signed-by=${NODE_JS_KEYRING}] https://deb.nodesource.com/${NODE_JS_VERSION} ${DISTRO} main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list && \
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee "${NODE_JS_KEYRING}" >/dev/null && \
+    echo "deb [signed-by=${NODE_JS_KEYRING}] https://deb.nodesource.com/${NODE_JS_VERSION} ${DISTRO} main" | tee /etc/apt/sources.list.d/nodesource.list && \
+    echo "deb-src [signed-by=${NODE_JS_KEYRING}] https://deb.nodesource.com/${NODE_JS_VERSION} ${DISTRO} main" | tee -a /etc/apt/sources.list.d/nodesource.list && \
     apt-get update && \
     apt-get install -y nodejs
 
