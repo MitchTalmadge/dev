@@ -11,9 +11,9 @@ RUN apt-get update && \
       git \
       htop \
       ncdu \
+      neovim \
       openssh-server \
       tmux \
-      vim \
       wget \
       zip \
       zsh
