@@ -85,7 +85,7 @@ RUN wget -O go.tar.gz https://go.dev/dl/go1.17.4.linux-amd64.tar.gz && \
   # Already installed by Clojure...
 
 # Install JavaScript (NodeJS & NPM)
-RUN apt-get update && \
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs && \
     npm install -g npm
 
