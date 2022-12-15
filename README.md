@@ -4,6 +4,10 @@ My personal Docker-based general development environment
 
 I use this to have a general Linux development environment ready to go whenever I need one, without having to worry about installing languages or tools.
 
+```
+ghcr.io/mitchtalmadge/dev:latest
+```
+
 # Distro
 - Ubuntu 22.04 (Jammy Jellyfish) w/ [S6 Overlay](https://github.com/just-containers/s6-overlay)
 
