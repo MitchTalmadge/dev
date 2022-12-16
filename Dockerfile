@@ -20,8 +20,7 @@ RUN apt-get update && \
 
 # Setup Dotfiles
 RUN curl -L -o- https://raw.githubusercontent.com/MitchTalmadge/dotfiles/master/bin/setup.sh | bash \
-    && sh /root/.dotfiles/bin/ssh/authorize_keys.sh \
-    && sh /root/.dotfiles/bin/ssh/pk.sh
+    && sh /root/.dotfiles/bin/ssh/authorize_keys.sh
 
 # Copy Services
 COPY ./data/services.d/ /etc/services.d/
