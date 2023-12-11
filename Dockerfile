@@ -8,14 +8,17 @@ WORKDIR /root/
 RUN apt-get update && \
     apt-get install -y \
       curl \
+      file \
       git \
       htop \
+      iproute2 \
       ncdu \
       neovim \
       openssh-server \
       tmux \
       wget \
       zip \
+      zoxide \
       zsh
 
 # Setup Dotfiles
